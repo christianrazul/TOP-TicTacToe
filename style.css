@@ -53,8 +53,14 @@ body {
   background-color: rgb(149, 208, 228);
   border-radius: 0.5rem;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
 
-  /* Use JS to adjust this rule to appear when winner is decided. */
+  /* 
+  Use JS to adjust this rule to appear when winner is decided.
+  Maybe also add an alert().
+  */
+  transition: 200ms ease-in;
+
   opacity: 0;
 }
 
