@@ -24,4 +24,8 @@ body {
   width: 30rem;
 
   padding: 3rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
 }
