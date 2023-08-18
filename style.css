@@ -1,0 +1,27 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+}
+
+.wrapper {
+  height: 100%;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board {
+  border: 1px solid red;
+  height: 30rem;
+  width: 30rem;
+
+  padding: 3rem;
+}
