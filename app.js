@@ -6,10 +6,10 @@ for (let i = 0; i < BOARD.length; i++) {
   myArray.push(BOARD[i]);
 }
 
-console.log(myArray);
+let turnController = false;
 
 myArray.forEach((element) => {
   element.addEventListener("click", () => {
-    console.log(element);
+    turnController ? ((element.textContent = "O"), (turnController = false)) : ((element.textContent = "X"), (turnController = true));
   });
 });
