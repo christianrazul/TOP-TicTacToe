@@ -1,18 +1,15 @@
-let BOX = document.querySelector(".box");
+const BOARD = document.querySelector(".board").children;
 
-BOX.addEventListener("click", () => {
-  const WINNER = document.querySelector(".winner");
+let myArray = [];
 
-  WINNER.style.opacity = "1";
+for (let i = 0; i < BOARD.length; i++) {
+  myArray.push(BOARD[i]);
+}
+
+console.log(myArray);
+
+myArray.forEach((element) => {
+  element.addEventListener("click", () => {
+    console.log(element);
+  });
 });
-
-let boxes = document.querySelectorAll(".box");
-
-let array = [];
-
-const test = () => {
-  for (let i = 0; i < boxes; i++) {
-    array.push(i);
-    console.log(array[i]);
-  }
-};
