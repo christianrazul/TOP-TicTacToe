@@ -1,4 +1,9 @@
 const BOARD = document.querySelector(".board").children;
+const ENEMY_PLAYER = document.querySelector(".enemy-player");
+
+ENEMY_PLAYER.addEventListener("click", (event) => {
+  console.log(event.target.textContent);
+});
 
 let myArray = [];
 
