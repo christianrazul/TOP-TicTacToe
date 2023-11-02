@@ -1,3 +1,6 @@
+const START_BUTTON = document.querySelector(".start");
+const RESET_BUTTON = document.querySelector(".reset");
+
 const Gameboard = (() => {
   let boxes = ["", "", "", "", "", "", "", "", ""];
 
@@ -15,6 +18,10 @@ const Gameboard = (() => {
     render,
   };
 })();
+
+START_BUTTON.addEventListener("click", () => {
+  Game.start();
+});
 
 // const BOARD = document.querySelector(".board").children;
 // const ENEMY_PLAYER = document.querySelector(".enemy-player");
