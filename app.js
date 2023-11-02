@@ -19,6 +19,24 @@ const Gameboard = (() => {
   };
 })();
 
+// FACTORY
+const createPlayer = (name, symbol) => {
+  return {
+    name,
+    symbol,
+  };
+};
+
+const Game = (() => {
+  let players = [];
+  let currentPlayerIndex;
+  let gameStatus;
+
+  const start = () => {
+    players = [createPlayer(document.querySelector("#player-1".value), "X"), createPlayer(document.querySelector("#enemy-player").value, "O")];
+  };
+})();
+
 START_BUTTON.addEventListener("click", () => {
   Game.start();
 });
