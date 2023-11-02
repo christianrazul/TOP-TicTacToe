@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/gif" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <script src="app.js" defer></script>
     <title>Tic Tac Toe</title>
   </head>
@@ -12,14 +13,22 @@
     <div class="wrapper">
       <div class="header">
         <h1>Tic-Tac-Toe</h1>
-        <h2>Choose your enemy:</h2>
+        <br />
+        <br />
+        <h3>Enter your name:</h3>
+        <div class="enter-name">
+          <input type="text" placeholder="Name" />
+        </div>
+        <h3>Choose your enemy:</h3>
+
         <div class="enemy-picker">
           <div class="enemy-player">Player</div>
           <div class="enemy-ai">AI</div>
         </div>
         <div class="winner"></div>
       </div>
-      <div class="board">
+      <div class="gameboard">
+        <!-- <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
@@ -27,8 +36,12 @@
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+        <div class="box"></div> -->
+      </div>
+
+      <div class="controller">
+        <div class="start">Start</div>
+        <div class="reset">Reset</div>
       </div>
       <div class="footer">
         <p>
