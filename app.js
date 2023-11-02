@@ -47,7 +47,7 @@ const Game = (() => {
   let gameStatus;
 
   const start = () => {
-    players = [createPlayer(document.querySelector("#player-1".value), "X"), createPlayer(document.querySelector(".enemy-player").textContent, "O")];
+    players = [createPlayer(document.querySelector("#player1").value, "X"), createPlayer(document.querySelector(".enemy-player").textContent, "O")];
 
     currentPlayerIndex = 0;
     gameStatus = false;
@@ -69,7 +69,7 @@ const Game = (() => {
 
     if (checkWinner(Gameboard.getBoxes(), players[currentPlayerIndex].name)) {
       gameStatus = true;
-      console.log(`${currentPlayerIndex.name} won`);
+      console.log(`${players[currentPlayerIndex].name} won`);
     }
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   };
@@ -93,10 +93,13 @@ function checkWinner(board) {
     [2, 4, 6],
   ];
 
-  for (let i=0; i<winningCombinations.length, i++){
-    const [a,b,c] = winningCombinations[i];
-    if(board[a] && board[a] === board[b] && board[a] === board[c])
+  for (let i = 0; i < winningCombinations.length; i++) {
+    const [a, b, c] = winningCombinations[i];
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      return true;
+    }
   }
+  return false;
 }
 
 START_BUTTON.addEventListener("click", () => {
