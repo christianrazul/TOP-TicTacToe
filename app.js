@@ -12,11 +12,6 @@ const Gameboard = (() => {
 
     let gameboard = document.querySelector(".gameboard");
     gameboard.innerHTML = boardHTML;
-
-    const boxDivs = document.querySelectorAll(".box");
-    boxDivs.forEach((box) => {
-      box.addEventListener("click", Game.handleClick);
-    });
   };
 
   return {
@@ -43,6 +38,11 @@ const Game = (() => {
     currentPlayerIndex = 0;
     gameStatus = false;
     Gameboard.render();
+
+    const boxDivs = document.querySelectorAll(".box");
+    boxDivs.forEach((box) => {
+      box.addEventListener("click", handleClick);
+    });
   };
 
   const handleClick = (event) => {
