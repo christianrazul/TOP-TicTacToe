@@ -12,6 +12,11 @@ const Gameboard = (() => {
 
     let gameboard = document.querySelector(".gameboard");
     gameboard.innerHTML = boardHTML;
+
+    const boxDivs = document.querySelectorAll(".box");
+    boxDivs.forEach((box) => {
+      box.addEventListener("click", handleClick);
+    });
   };
 
   return {
