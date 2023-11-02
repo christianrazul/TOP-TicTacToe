@@ -12,10 +12,17 @@ const Gameboard = (() => {
 
     let gameboard = document.querySelector(".gameboard");
     gameboard.innerHTML = boardHTML;
+
+    const boxDivs = document.querySelectorAll(".box");
+    boxDivs.forEach((box) => {
+      box.addEventListener("click", handleClick);
+    });
   };
 
+  const update = (index, symbol) => {};
   return {
     render,
+    update,
   };
 })();
 
@@ -38,16 +45,13 @@ const Game = (() => {
     currentPlayerIndex = 0;
     gameStatus = false;
     Gameboard.render();
-
-    const boxDivs = document.querySelectorAll(".box");
-    boxDivs.forEach((box) => {
-      box.addEventListener("click", handleClick);
-    });
   };
 
   const handleClick = (event) => {
     let index = parseInt(event.target.id.split("-")[1]);
-    console.log(index);
+    Gameboard.update(index, players[currentPlayerIndex].symbol);
+
+    currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   };
 
   return {
