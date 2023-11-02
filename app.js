@@ -33,7 +33,15 @@ const Game = (() => {
   let gameStatus;
 
   const start = () => {
-    players = [createPlayer(document.querySelector("#player-1".value), "X"), createPlayer(document.querySelector("#enemy-player").value, "O")];
+    players = [createPlayer(document.querySelector("#player-1".value), "X"), createPlayer(document.querySelector(".enemy-player").textContent, "O")];
+
+    currentPlayerIndex = 0;
+    gameStatus = false;
+    Gameboard.render();
+  };
+
+  return {
+    start,
   };
 })();
 
