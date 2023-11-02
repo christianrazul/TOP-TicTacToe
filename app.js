@@ -15,7 +15,7 @@ const Gameboard = (() => {
 
     const boxDivs = document.querySelectorAll(".box");
     boxDivs.forEach((box) => {
-      box.addEventListener("click", handleClick);
+      box.addEventListener("click", Game.handleClick);
     });
   };
 
@@ -45,8 +45,14 @@ const Game = (() => {
     Gameboard.render();
   };
 
+  const handleClick = (event) => {
+    let index = parseInt(event.target.id.split("-")[1]);
+    console.log(index);
+  };
+
   return {
     start,
+    handleClick,
   };
 })();
 
