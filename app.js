@@ -1,5 +1,6 @@
 const START_BUTTON = document.querySelector(".start");
 const RESET_BUTTON = document.querySelector(".reset");
+const WINNER_DIV = document.querySelector(".winner");
 
 const Gameboard = (() => {
   let boxes = ["", "", "", "", "", "", "", "", ""];
@@ -41,6 +42,16 @@ const createPlayer = (name, symbol) => {
   };
 };
 
+const declareWinner = (() => {
+  const renderMessage = (message) => {
+    WINNER_DIV.innerHTML = message;
+    WINNER_DIV.style.opacity = 1;
+  };
+  return {
+    renderMessage,
+  };
+})();
+
 const Game = (() => {
   let players = [];
   let currentPlayerIndex;
@@ -62,6 +73,8 @@ const Game = (() => {
   };
 
   const handleClick = (event) => {
+    if (gameStatus) return;
+
     let index = parseInt(event.target.id.split("-")[1]);
     if (Gameboard.getBoxes()[index] !== "") return;
 
@@ -69,7 +82,10 @@ const Game = (() => {
 
     if (checkWinner(Gameboard.getBoxes(), players[currentPlayerIndex].name)) {
       gameStatus = true;
-      console.log(`${players[currentPlayerIndex].name} won`);
+      declareWinner.renderMessage(`${players[currentPlayerIndex].name} won`);
+    } else if (checkTie(Gameboard.getBoxes())) {
+      gameStatus = true;
+      declareWinner.renderMessage("It's a tie!");
     }
     currentPlayerIndex = currentPlayerIndex === 0 ? 1 : 0;
   };
@@ -100,6 +116,11 @@ function checkWinner(board) {
     }
   }
   return false;
+}
+
+function checkTie(board) {
+  // every() checks if condition inside is true
+  return board.every((cell) => cell !== "");
 }
 
 START_BUTTON.addEventListener("click", () => {
